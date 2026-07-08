@@ -1,0 +1,41 @@
+{
+  "name": "@ai-native-solutions/fallaudio-api",
+  "version": "1.0.0",
+  "description": "HTTP API for fallaudio: audio edit ops + DSP + WAV codec over Express.",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "fallaudio-api": "src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE",
+    "Dockerfile",
+    "docker-compose.yml"
+  ],
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "keywords": [
+    "audio",
+    "wav",
+    "dsp",
+    "http",
+    "api",
+    "express"
+  ],
+  "author": "ai-nativesolutions.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "@ai-native-solutions/fallaudio-sdk": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sjgant80-hub/fallaudio-api.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

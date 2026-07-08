@@ -1,0 +1,11 @@
+services:
+  fallaudio-api:
+    build: .
+    image: ai-native-solutions/fallaudio-api:1.0.0
+    container_name: fallaudio-api
+    ports:
+      - "8787:8787"
+    environment:
+      - PORT=8787
+      - MAX_BODY=50mb
+    restart: unless-stopped

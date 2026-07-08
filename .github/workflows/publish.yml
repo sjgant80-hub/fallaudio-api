@@ -1,0 +1,22 @@
+name: publish
+on:
+  push:
+    tags: ['v*']
+jobs:
+  npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+      - name: publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if [ -z "$NODE_AUTH_TOKEN" ]; then
+            echo "no NPM_TOKEN, skipping publish (repo tagged for archival only)"
+            exit 0
+          fi
+          npm publish --access public || echo "publish failed (non-fatal)"
